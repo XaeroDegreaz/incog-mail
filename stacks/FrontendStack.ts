@@ -1,9 +1,9 @@
 import {ReactStaticSite, StackContext, use} from "@serverless-stack/resources";
-import {MyStack} from "./MyStack";
+import {BackendStack} from "./MyStack";
 
 export function FrontendStack( {stack, app}: StackContext )
 {
-  const {webSocket} = use( MyStack );
+  const {webSocket} = use( BackendStack );
   const site = new ReactStaticSite( stack, 'ReactSite', {
     path: 'frontend',
     environment: {

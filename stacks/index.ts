@@ -1,5 +1,5 @@
 import {FrontendStack} from "./FrontendStack";
-import {MyStack} from "./MyStack";
+import {BackendStack} from "./MyStack";
 import {App} from "@serverless-stack/resources";
 
 export default function ( app: App ) {
@@ -10,5 +10,5 @@ export default function ( app: App ) {
       format: "esm",
     },
   } );
-  app.stack( MyStack ).stack( FrontendStack );
+  app.stack( BackendStack ).stack( FrontendStack );
 }

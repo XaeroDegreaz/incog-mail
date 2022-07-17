@@ -1,4 +1,4 @@
-### Anonymail
+### IncogMail
 
 This project is a simple attempt at generating anonymous, throwaway email addresses in a serverless environment.
 

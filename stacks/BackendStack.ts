@@ -4,7 +4,7 @@ import {Sns} from "aws-cdk-lib/aws-ses-actions";
 import {Topic} from "aws-cdk-lib/aws-sns";
 import {LambdaSubscription} from "aws-cdk-lib/aws-sns-subscriptions";
 
-export function MyStack( {stack, app}: StackContext )
+export function BackendStack( {stack, app}: StackContext )
 {
   const getPrefix = () => `${app.stage}-${app.name}`;
   const table = new Table( stack, `ConnectionToAddressTable`, {
