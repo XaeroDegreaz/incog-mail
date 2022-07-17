@@ -1,5 +1,5 @@
 import {FrontendStack} from "./FrontendStack";
-import {BackendStack} from "./MyStack";
+import {BackendStack} from "./BackendStack";
 import {App} from "@serverless-stack/resources";
 
 export default function ( app: App ) {

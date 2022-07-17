@@ -30,6 +30,7 @@ You only need to go so far as to make sure that your SES is able to receive, and
 
 * An AWS account with a 'Verified Identity' domain verified with
   [Amazon Simple Email Service (SES)](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#verify-domain-procedure) from which to send emails from is required.
+* Incoming SMTP MX record pointing to AWS SES servers.
 
 If you've already got a domain registered through AWS, then the process is straightforward and a lot of the work gets done for you during the verification process. If not, there
 will be some manual steps you'll need to take with your registrar. Please refer to the documentation in the bullet above.

@@ -7,6 +7,12 @@ import {LambdaSubscription} from "aws-cdk-lib/aws-sns-subscriptions";
 export function BackendStack( {stack, app}: StackContext )
 {
   const getPrefix = () => `${app.stage}-${app.name}`;
+
+  const getComputedDomain = (): string => {
+    const baseDomain = process.env.DOMAIN!;
+    return app.stage === 'production' ? baseDomain : `${app.stage}.${baseDomain}`
+  }
+
   const table = new Table( stack, `ConnectionToAddressTable`, {
     fields: {
       connectionId: "string",
@@ -31,7 +37,7 @@ export function BackendStack( {stack, app}: StackContext )
         actions: [
           new Sns( {topic} )
         ],
-        recipients: ['sunbrobot.com'],
+        recipients: [process.env.DOMAIN!],
         receiptRuleName: `${getPrefix()}-ReceiptRule`
       }
     ]
@@ -72,5 +78,5 @@ export function BackendStack( {stack, app}: StackContext )
     WebsocketApiEndpoint: webSocket.url,
     ConnectionTable: table.tableArn
   } );
-  return {webSocket}
+  return {webSocket, getComputedDomain}
 }

@@ -21,7 +21,7 @@ function App()
       const json = JSON.parse( event.data );
       if ( json.emailAddress )
       {
-        setEmailAddress( `${json.emailAddress}@sunbrobot.com` )
+        setEmailAddress( `${json.emailAddress}@${process.env.REACT_APP_DOMAIN}` )
         setEmailCopied( false );
         return;
       }
