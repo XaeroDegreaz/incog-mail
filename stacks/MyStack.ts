@@ -1,6 +1,6 @@
 import {Function, StackContext, Table, WebSocketApi} from "@serverless-stack/resources";
 import {ReceiptRuleSet} from "aws-cdk-lib/aws-ses";
-import {Lambda, LambdaInvocationType, Sns} from "aws-cdk-lib/aws-ses-actions";
+import {Sns} from "aws-cdk-lib/aws-ses-actions";
 import {Topic} from "aws-cdk-lib/aws-sns";
 import {LambdaSubscription} from "aws-cdk-lib/aws-sns-subscriptions";
 
@@ -72,4 +72,5 @@ export function MyStack( {stack, app}: StackContext )
     WebsocketApiEndpoint: webSocket.url,
     ConnectionTable: table.tableArn
   } );
+  return {webSocket}
 }
