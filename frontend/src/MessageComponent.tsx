@@ -9,11 +9,12 @@ export interface Message {
 
 interface Props {
   message: Message
+  onMessageSelected: ( message: Message ) => void;
 }
 
-export const MessageComponent: React.FC<Props> = ( {message} ) => {
+export const MessageComponent: React.FC<Props> = ( {message, onMessageSelected} ) => {
   return (
-    <tr>
+    <tr onClick={() => onMessageSelected( message )} style={{cursor: 'pointer'}}>
       <td>{message.from}</td>
       <td>{message.subject}</td>
       <td>
