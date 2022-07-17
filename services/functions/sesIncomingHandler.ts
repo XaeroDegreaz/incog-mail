@@ -45,6 +45,11 @@ export const handler: SNSHandler = async ( event ) => {
       Data: JSON.stringify( minimal )
     } ).promise();
   }catch ( e ) {
+    //# There are some limitations to the amount of data that can be pushed over AWS websockets
+    //# I want to at least catch the 'payload too large' error, and send a tiny
+    //# email to the frontend letting the client know that we got the e-mail, we just couldn't push
+    //# it to them.
+    //# To be implemented once I clean all this up a bit more.
     const error = e as AWSError;
     console.log({e})
   }
